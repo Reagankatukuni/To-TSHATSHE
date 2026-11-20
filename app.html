@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-TSHATSHE</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+        }
+
+        header {
+            background: #00853e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            padding: 15px;
+        }
+
+        .publication {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #00853e;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-around;
+            background: white;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🇨🇩 To-TSHATSHE</h1>
+    <p>Connectons-nous</p>
+</header>
+
+<div class="container">
+
+    <div class="publication">
+        <h3>Créer une publication</h3>
+
+        <textarea id="texte" placeholder="Quoi de neuf ?"></textarea>
+
+        <button onclick="publier()">Publier</button>
+    </div>
+
+    <div id="publications">
+        <div class="publication">
+            <h3>Bienvenue sur To-TSHATSHE ! 🇨🇩</h3>
+            <p>Notre plateforme de communication et de partage commence ici.</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="navigation">
+    <span>🏠 Accueil</span>
+    <span>🔍 Recherche</span>
+    <span>➕ Publier</span>
+    <span>👤 Profil</span>
+</div>
+
+<script>
+function publier() {
+    const texte = document.getElementById("texte").value;
+
+    if (texte.trim() === "") {
+        alert("Écrivez quelque chose avant de publier !");
+        return;
+    }
+
+    const publication = document.createElement("div");
+    publication.className = "publication";
+
+    publication.innerHTML = `
+        <h3>Utilisateur</h3>
+        <p>${texte}</p>
+        <small>À l'instant</small>
+    `;
+
+    document.getElementById("publications").prepend(publication);
+
+    document.getElementById("texte").value = "";
+}
+</script>
+
+</body>
+  </html>
